@@ -1,11 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Response() {
+function Response({ response }) {
   return (
     <div>
-      Response Text Here
+      Response Text<span>{response}</span>   tHere
     </div>
   );
 }
+
+Response.propTypes = {
+  response: PropTypes.string
+};
 
 export default Response;
