@@ -13,15 +13,21 @@ export default class Resty extends Component {
     history: []
   }
 
+  urlOnChange = (e) => {
+    this.setState({
+      url: e.target.value
+    });
+  }
 
   render() {
 
     const { response } = this.state;
+    console.log(this.state);
 
     return (
       <>
         <HistoryList />
-        <Request />
+        <Request onChange={this.urlOnChange}/>
         <Request />
         <br></br>
         <hr></hr>
