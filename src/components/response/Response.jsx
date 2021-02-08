@@ -10,7 +10,7 @@ function Response({ response }) {
 }
 
 Response.propTypes = {
-  response: PropTypes.string
+  response: PropTypes.any
 };
 
 export default Response;

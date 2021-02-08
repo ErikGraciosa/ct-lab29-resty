@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Request from '../../components/request/Request';
 import Response from '../../components/response/Response';
+import fetch from 'superagent';
 // import HistoryList from '../../components/history/HistoryList';
 
 export default class Resty extends Component {
@@ -9,7 +10,7 @@ export default class Resty extends Component {
     url: '',
     method: 'get',
     body: '',
-    response: 'this is sample response',
+    response: [],
     history: []
   }
 
@@ -31,10 +32,26 @@ export default class Resty extends Component {
     });
   }
 
-  onSubmit = (e) => {
+  onSubmit = async(e) => {
     e.preventDefault();
-    console.log('youclicked');
+    if(this.state.method === 'get'){
+      const getRoute = await fetch
+        .get(this.state.url)
+        .then(res => res.body);
+
+      const prevState = this.state;
+
+      console.log(getRoute);
+      this.setState(() => ({
+        repsonse: [...prevState.response, ...getRoute]
+      }));
+
+    }
+    
   }
+
+  //Need to be able to put together all the state and make a request
+
 
   render() {
 

@@ -53,7 +53,8 @@ function Request({ urlOnChange, onRadioClick, bodyOnChange, onSubmit }) {
 Request.propTypes = {
   urlOnChange: PropTypes.func,
   onRadioClick: PropTypes.func,
-  bodyOnChange: PropTypes.func
+  bodyOnChange: PropTypes.func,
+  onSubmit: PropTypes.func
 };
 
 export default Request;
