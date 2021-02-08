@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Request from '../../components/request/Request';
 import Response from '../../components/response/Response';
-import HistoryList from '../../components/history/HistoryList';
+// import HistoryList from '../../components/history/HistoryList';
 
 export default class Resty extends Component {
 
   state = {
     url: '',
-    method: '',
+    method: 'get',
     body: '',
     response: 'this is sample response',
     history: []
@@ -19,6 +19,23 @@ export default class Resty extends Component {
     });
   }
 
+  bodyOnChange = (e) => {
+    this.setState({
+      body: e.target.value
+    });
+  }
+
+  onRadioClick = (e) => {
+    this.setState({
+      method: e.target.value
+    });
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    console.log('youclicked');
+  }
+
   render() {
 
     const { response } = this.state;
@@ -26,9 +43,11 @@ export default class Resty extends Component {
 
     return (
       <>
-        <HistoryList />
-        <Request onChange={this.urlOnChange}/>
-        <Request />
+        <Request 
+          urlOnChange={this.urlOnChange} 
+          onRadioClick={this.onRadioClick}
+          bodyOnChange={this.bodyOnChange}
+          onSubmit={this.onSubmit}/>
         <br></br>
         <hr></hr>
         <br></br>

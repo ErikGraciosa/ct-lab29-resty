@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function Response({ response }) {
   return (
     <div>
-      Response Text<span>{response}</span>   tHere
+      <span>{response}</span>
     </div>
   );
 }
