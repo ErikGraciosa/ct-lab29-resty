@@ -2,8 +2,55 @@
 
 exports[`App component renders App 1`] = `
 <DocumentFragment>
-  <h1>
-    Hello World
-  </h1>
+  <form>
+    <input
+      type="text"
+    />
+    <label>
+      GET
+      <input
+        checked=""
+        name="crud-route"
+        type="radio"
+        value="get"
+      />
+    </label>
+    <label>
+      POST
+      <input
+        name="crud-route"
+        type="radio"
+        value="post"
+      />
+    </label>
+    <label>
+      PUT
+      <input
+        name="crud-route"
+        type="radio"
+        value="put"
+      />
+    </label>
+    <label>
+      DELETE
+      <input
+        name="crud-route"
+        type="radio"
+        value="delete"
+      />
+    </label>
+    <input
+      type="text"
+    />
+    <button>
+      Submit
+    </button>
+  </form>
+  <br />
+  <hr />
+  <br />
+  <div>
+    <span />
+  </div>
 </DocumentFragment>
 `;
