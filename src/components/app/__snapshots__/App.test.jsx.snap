@@ -50,7 +50,9 @@ exports[`App component renders App 1`] = `
   <hr />
   <br />
   <div>
-    <span />
+    <span>
+      Response will appear here
+    </span>
   </div>
 </DocumentFragment>
 `;

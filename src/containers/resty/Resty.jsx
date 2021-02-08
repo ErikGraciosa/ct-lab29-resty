@@ -10,7 +10,7 @@ export default class Resty extends Component {
     url: '',
     method: 'get',
     body: '',
-    response: [],
+    response: 'Response will appear here',
     history: []
   }
 
@@ -39,12 +39,10 @@ export default class Resty extends Component {
         .get(this.state.url)
         .then(res => res.body);
 
-      const prevState = this.state;
-
       console.log(getRoute);
-      this.setState(() => ({
-        repsonse: [...prevState.response, ...getRoute]
-      }));
+      this.setState({
+        response: String(JSON.stringify(getRoute))
+      });
 
     }
     
