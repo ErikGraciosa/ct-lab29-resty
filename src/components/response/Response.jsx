@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function Response({ response }) {
   return (
     <div>
-      <span>{response}</span>
+      <pre>{response}</pre>
     </div>
   );
 }

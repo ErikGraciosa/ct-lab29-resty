@@ -35,21 +35,48 @@ export default class Resty extends Component {
   onSubmit = async(e) => {
     e.preventDefault();
     if(this.state.method === 'get'){
+      e.preventDefault();
       const getRoute = await fetch
         .get(this.state.url)
         .then(res => res.body);
 
-      console.log(getRoute);
       this.setState({
-        response: String(JSON.stringify(getRoute))
+        response: String(JSON.stringify(getRoute, null, 2))
       });
+    } 
+    if(this.state.method === 'post') {
+      e.preventDefault();
+      const postRoute = await fetch
+        .post(this.state.url)
+        .send(this.state.body)
+        .then(res => res.body);
 
+      this.setState({
+        response: String(JSON.stringify(postRoute, null, 2))
+      });
     }
-    
+    if(this.state.method === 'put') {
+      e.preventDefault();
+      const postRoute = await fetch
+        .put(this.state.url)
+        .send(this.state.body)
+        .then(res => res.body);
+
+      this.setState({
+        response: String(JSON.stringify(postRoute, null, 2))
+      });
+    }
+    if(this.state.method === 'delete') {
+      e.preventDefault();
+      const postRoute = await fetch
+        .delete(this.state.url)
+        .then(res => res.body);
+        
+      this.setState({
+        response: String(JSON.stringify(postRoute, null, 2))
+      });
+    }
   }
-
-  //Need to be able to put together all the state and make a request
-
 
   render() {
 
