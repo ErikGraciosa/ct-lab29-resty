@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Request from '../../components/request/Request';
 import Response from '../../components/response/Response';
 import fetch from 'superagent';
-// import HistoryList from '../../components/history/HistoryList';
 
 export default class Resty extends Component {
 
@@ -81,7 +80,6 @@ export default class Resty extends Component {
   render() {
 
     const { response } = this.state;
-    console.log(this.state);
 
     return (
       <>

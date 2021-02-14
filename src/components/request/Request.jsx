@@ -13,7 +13,6 @@ function Request({ urlOnChange, onRadioClick, bodyOnChange, onSubmit }) {
       </input>
       <label>
         <input 
-          
           type="radio" 
           name="crud-route" 
           value="get" 
