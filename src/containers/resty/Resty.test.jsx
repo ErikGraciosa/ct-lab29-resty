@@ -1,4 +1,4 @@
-global.fetch = require('superagent');
+global.fetch = require('superagent'); // eslint-disable-line
 import React from 'react';
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import Resty from './Resty';
@@ -20,21 +20,28 @@ describe('Resty page functionality testing', () => {
     fireEvent.submit(submitButton);
     
     return waitFor(() => {
-      expect(screen.getByTestId('response')).toHaveTextContent('userId', { exact: false });
+      expect(screen.getByTestId('response'))
+        .toHaveTextContent('userId', { exact: false });
     });
   });
 
-  it.skip('test POST route is functional', async() => {
+  it('test POST route is functional', async() => {
     render(
       <Resty />
     );
     
     const urlInput = screen.getByPlaceholderText('url');
-    const searchButton = screen.getByText('Submit');
+    const submitButton = screen.getByText('Submit');
+    const postRadio = screen.getByText('POST');
     const bodyInput = screen.getByPlaceholderText('add body here...');
     const response = screen.getByTestId('response');
-
-    fireEvent.input(urlInput, {
+    
+    fireEvent.change(urlInput, {
+      target: {
+        value: 'https://jsonplaceholder.typicode.com/posts',
+      },
+    });
+    fireEvent.change(bodyInput, {
       target: {
         value: {
           title: 'foo',
@@ -43,16 +50,13 @@ describe('Resty page functionality testing', () => {
         },
       },
     });
-    fireEvent.input(bodyInput, {
-      target: {
-        value: 'https://jsonplaceholder.typicode.com/posts',
-      },
-    });
-    fireEvent.submit(searchButton);
+    fireEvent.click(postRadio);
+    
+    fireEvent.submit(submitButton);
 
-    console.log(response);
     return waitFor(() => {
-      screen.findByText('somethingel');
+      expect(screen.getByTestId('response'))
+        .toHaveTextContent('"id": 101');
     });
   });
 
