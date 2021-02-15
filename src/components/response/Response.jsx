@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 function Response({ response }) {
   return (
     <div>
-      <pre data-testid="response">{response}</pre>
+      <pre 
+        value={response}
+        data-testid="response">{response}</pre>
     </div>
   );
 }

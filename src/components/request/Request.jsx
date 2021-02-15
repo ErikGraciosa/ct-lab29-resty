@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Request.css';
 
-function Request({ urlOnChange, onRadioClick, bodyOnChange, onSubmit }) {
+function Request({ value, urlOnChange, onRadioClick, bodyOnChange, onSubmit }) {
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <input 
+        value={value}
         className={styles.url} 
         placeholder="url"
         type="text" 
@@ -50,12 +51,13 @@ function Request({ urlOnChange, onRadioClick, bodyOnChange, onSubmit }) {
         type="text"
         onChange={bodyOnChange}>
       </input>
-      <button onClick={onSubmit}>Submit</button>
+      <button type="submit">Submit</button>
     </form>
   );
 }
 
 Request.propTypes = {
+  value: PropTypes.string,
   urlOnChange: PropTypes.func,
   onRadioClick: PropTypes.func,
   bodyOnChange: PropTypes.func,

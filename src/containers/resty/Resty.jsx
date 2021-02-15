@@ -9,7 +9,7 @@ export default class Resty extends Component {
     url: '',
     method: 'get',
     body: '',
-    response: 'Response will appear here',
+    response: '',
     history: []
   }
 
@@ -79,11 +79,12 @@ export default class Resty extends Component {
 
   render() {
 
-    const { response } = this.state;
+    const { response, url } = this.state;
 
     return (
       <>
         <Request 
+          value={url}
           urlOnChange={this.urlOnChange} 
           onRadioClick={this.onRadioClick}
           bodyOnChange={this.bodyOnChange}
@@ -91,7 +92,8 @@ export default class Resty extends Component {
         <br></br>
         <hr></hr>
         <br></br>
-        <Response response={response}/>
+        <Response 
+          response={response}/>
       </>
     );
   }
