@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Request from '../../components/request/Request';
 import Response from '../../components/response/Response';
 import fetch from 'superagent';
+import './Resty.css';
 
 export default class Resty extends Component {
 

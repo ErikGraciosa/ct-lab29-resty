@@ -1,0 +1,20 @@
+.response {
+  width: 1500px;
+  height: 600px;
+  border: solid black 1px;
+  margin: auto;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  margin: auto;
+}
+
+pre {
+  background-color: rgb(229, 226, 226);
+  width: 1450px;
+  min-height: 550px;
+  margin: auto;
+}

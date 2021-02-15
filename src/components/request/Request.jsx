@@ -5,6 +5,7 @@ import styles from './Request.css';
 function Request({ value, urlOnChange, onRadioClick, bodyOnChange, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>
+      <p>POSTMAN CLONE</p>
       <input 
         value={value}
         className={styles.url} 
@@ -12,39 +13,41 @@ function Request({ value, urlOnChange, onRadioClick, bodyOnChange, onSubmit }) {
         type="text" 
         onChange={urlOnChange}>
       </input>
-      <label>
-        <input 
-          type="radio" 
-          name="crud-route" 
-          value="get" 
-          defaultChecked
-          onClick={onRadioClick}>
-        </input>GET
-      </label>
-      <label>
-        <input 
-          type="radio" 
-          name="crud-route"
-          value="post"
-          onClick={onRadioClick}>
-        </input>POST
-      </label>
-      <label>
-        <input 
-          type="radio" 
-          name="crud-route"
-          value="put"
-          onClick={onRadioClick}>
-        </input>PUT
-      </label>
-      <label>
-        <input 
-          type="radio" 
-          name="crud-route"
-          value="delete"
-          onClick={onRadioClick}>
-        </input>DELETE
-      </label>
+      <div className={styles.radioButtons}>
+        <label>
+          <input 
+            type="radio" 
+            name="crud-route" 
+            value="get" 
+            defaultChecked
+            onClick={onRadioClick}>
+          </input>GET
+        </label>
+        <label>
+          <input 
+            type="radio" 
+            name="crud-route"
+            value="post"
+            onClick={onRadioClick}>
+          </input>POST
+        </label>
+        <label>
+          <input 
+            type="radio" 
+            name="crud-route"
+            value="put"
+            onClick={onRadioClick}>
+          </input>PUT
+        </label>
+        <label>
+          <input 
+            type="radio" 
+            name="crud-route"
+            value="delete"
+            onClick={onRadioClick}>
+          </input>DELETE
+        </label>
+      </div>
       <input 
         placeholder="add body here..."
         className={styles.body}

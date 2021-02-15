@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App component renders App 1`] = `
+exports[`Request component renders Request 1`] = `
 <DocumentFragment>
   <form>
     <p>
@@ -60,19 +60,5 @@ exports[`App component renders App 1`] = `
       Submit
     </button>
   </form>
-  <br />
-  <hr />
-  <br />
-  <div
-    class="response"
-  >
-    <p>
-      Response Body Below
-    </p>
-    <pre
-      data-testid="response"
-      value=""
-    />
-  </div>
 </DocumentFragment>
 `;
