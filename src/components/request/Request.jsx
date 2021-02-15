@@ -1,56 +1,66 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Request.css';
 
-function Request({ urlOnChange, onRadioClick, bodyOnChange, onSubmit }) {
+function Request({ value, urlOnChange, onRadioClick, bodyOnChange, onSubmit }) {
   return (
-    <form>
+    <form onSubmit={onSubmit}>
+      <p>POSTMAN CLONE</p>
       <input 
+        value={value}
+        className={styles.url} 
+        placeholder="url"
         type="text" 
         onChange={urlOnChange}>
       </input>
-      <label>GET
-        <input 
-          type="radio" 
-          name="crud-route" 
-          value="get" 
-          defaultChecked
-          onClick={onRadioClick}>
-        </input>
-      </label>
-      <label>POST
-        <input 
-          type="radio" 
-          name="crud-route"
-          value="post"
-          onClick={onRadioClick}>
-        </input>
-      </label>
-      <label>PUT
-        <input 
-          type="radio" 
-          name="crud-route"
-          value="put"
-          onClick={onRadioClick}>
-        </input>
-      </label>
-      <label>DELETE
-        <input 
-          type="radio" 
-          name="crud-route"
-          value="delete"
-          onClick={onRadioClick}>
-        </input>
-      </label>
+      <div className={styles.radioButtons}>
+        <label>
+          <input 
+            type="radio" 
+            name="crud-route" 
+            value="get" 
+            defaultChecked
+            onClick={onRadioClick}>
+          </input>GET
+        </label>
+        <label>
+          <input 
+            type="radio" 
+            name="crud-route"
+            value="post"
+            onClick={onRadioClick}>
+          </input>POST
+        </label>
+        <label>
+          <input 
+            type="radio" 
+            name="crud-route"
+            value="put"
+            onClick={onRadioClick}>
+          </input>PUT
+        </label>
+        <label>
+          <input 
+            type="radio" 
+            name="crud-route"
+            value="delete"
+            onClick={onRadioClick}>
+          </input>DELETE
+        </label>
+      </div>
       <input 
+        placeholder="add body here..."
+        className={styles.body}
         type="text"
         onChange={bodyOnChange}>
       </input>
-      <button onClick={onSubmit}>Submit</button>
+      <button type="submit">Submit</button>
     </form>
   );
 }
 
 Request.propTypes = {
+  value: PropTypes.string,
   urlOnChange: PropTypes.func,
   onRadioClick: PropTypes.func,
   bodyOnChange: PropTypes.func,

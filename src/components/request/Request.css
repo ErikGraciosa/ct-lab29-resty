@@ -1,0 +1,33 @@
+form {
+  width:650px;
+  border: solid black 1px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 5px;
+}
+
+p {
+  margin: auto;
+}
+
+button {
+  margin: auto;
+}
+
+.body {
+  height: 300px;
+  width: 600px;
+  margin: auto;
+}
+
+.url {
+  width: 600px;
+  margin: auto;
+}
+
+.radioButtons {
+  display: flex;
+  justify-self: space-between;
+  margin: auto;
+}

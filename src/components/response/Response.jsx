@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Response.css';
 
 function Response({ response }) {
   return (
-    <div>
-      <span>{response}</span>
+    <div className={styles.response}>
+      <p>Response Body Below</p>
+      <pre 
+        value={response}
+        data-testid="response">{response}</pre>
     </div>
   );
 }

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Response component renders Response 1`] = `
+<DocumentFragment>
+  <div
+    class="response"
+  >
+    <p>
+      Response Body Below
+    </p>
+    <pre
+      data-testid="response"
+    />
+  </div>
+</DocumentFragment>
+`;

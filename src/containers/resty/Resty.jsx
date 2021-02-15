@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Request from '../../components/request/Request';
 import Response from '../../components/response/Response';
 import fetch from 'superagent';
-// import HistoryList from '../../components/history/HistoryList';
+import './Resty.css';
 
 export default class Resty extends Component {
 
@@ -10,7 +10,7 @@ export default class Resty extends Component {
     url: '',
     method: 'get',
     body: '',
-    response: 'Response will appear here',
+    response: '',
     history: []
   }
 
@@ -35,30 +35,57 @@ export default class Resty extends Component {
   onSubmit = async(e) => {
     e.preventDefault();
     if(this.state.method === 'get'){
+      e.preventDefault();
       const getRoute = await fetch
         .get(this.state.url)
         .then(res => res.body);
 
-      console.log(getRoute);
       this.setState({
-        response: String(JSON.stringify(getRoute))
+        response: String(JSON.stringify(getRoute, null, 2))
       });
+    } 
+    if(this.state.method === 'post') {
+      e.preventDefault();
+      const postRoute = await fetch
+        .post(this.state.url)
+        .send(this.state.body)
+        .then(res => res.body);
 
+      this.setState({
+        response: String(JSON.stringify(postRoute, null, 2))
+      });
     }
-    
+    if(this.state.method === 'put') {
+      e.preventDefault();
+      const postRoute = await fetch
+        .put(this.state.url)
+        .send(this.state.body)
+        .then(res => res.body);
+
+      this.setState({
+        response: String(JSON.stringify(postRoute, null, 2))
+      });
+    }
+    if(this.state.method === 'delete') {
+      e.preventDefault();
+      const postRoute = await fetch
+        .delete(this.state.url)
+        .then(res => res.body);
+        
+      this.setState({
+        response: String(JSON.stringify(postRoute, null, 2))
+      });
+    }
   }
-
-  //Need to be able to put together all the state and make a request
-
 
   render() {
 
-    const { response } = this.state;
-    console.log(this.state);
+    const { response, url } = this.state;
 
     return (
       <>
         <Request 
+          value={url}
           urlOnChange={this.urlOnChange} 
           onRadioClick={this.onRadioClick}
           bodyOnChange={this.bodyOnChange}
@@ -66,7 +93,8 @@ export default class Resty extends Component {
         <br></br>
         <hr></hr>
         <br></br>
-        <Response response={response}/>
+        <Response 
+          response={response}/>
       </>
     );
   }
